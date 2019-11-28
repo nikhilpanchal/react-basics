@@ -1,7 +1,11 @@
 import React from 'react';
 
 class AppKeyDemo extends React.Component {
-    state = { items: [] };
+    state = {
+        items: [],
+        date: new Date(),
+        dateString: new Date().toLocaleTimeString()
+    };
 
     static allItems = [
         { id: 'a', value: 'apple' },
@@ -18,14 +22,17 @@ class AppKeyDemo extends React.Component {
     // it keeps track of this association using the key attribute.
 
     addItem = event => {
-        this.setState(({ items }) => ({
-            items: [
-                ...items,
-                AppKeyDemo.allItems.find(
-                    item => !items.includes(item)
-                )
-            ]
-        }));
+        this.setState(
+            ({ items, dateString }) => (
+                {
+                    items: [
+                        ...items,
+                        AppKeyDemo.allItems.find(
+                            item => !items.includes(item)
+                        )
+                    ]
+                }
+            ));
     }
 
     removeItem = it => {
@@ -43,8 +50,9 @@ class AppKeyDemo extends React.Component {
         return (
             <div>
                 <button onClick={this.addItem}>
-                    +
+                    +  
                 </button>
+                <div>{this.state.dateString}</div>
 
                 {
                     this.state.items.map((item, i) => {
@@ -53,9 +61,10 @@ class AppKeyDemo extends React.Component {
                             // to be the same as that of the items array in the state. In this example removing and adding
                             // items will change the order in which say the apple div will appear but if we use the index
                             // as the key, react will always fill the first  
+                            // Here we should use item.id instead of i
                             <div key={item.id}>
                                 <button onClick={(e) => this.removeItem(item)}>-</button>
-                                {item.value}: 
+                                {item.value}:
                                 <input />
                             </div>
                         )

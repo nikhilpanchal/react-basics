@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
+import AppForm from './App-form';
 import AppKeyDemo from './App-keydemo';
+import AppLifeCycle from './App-lifecycle';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<AppKeyDemo />, document.getElementById('root'));
+// ReactDOM.render(<AppLifeCycle />, document.getElementById('root'));
+// ReactDOM.render(<AppForm />, document.getElementById('root'));
+// ReactDOM.render(<AppKeyDemo />, document.getElementById('root'));
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
