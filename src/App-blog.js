@@ -1,7 +1,7 @@
 import React from 'react';
 import Blog from './containers/Blog';
 
-class App extends React.Component {
+class AppBlog extends React.Component {
 
     render() {
         return (
@@ -11,4 +11,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default AppBlog;
